@@ -1,12 +1,12 @@
 import { Box, Flex, Grid, Heading } from "@chakra-ui/react";
 import React from "react";
 import {
-  BsArrowUpCircleFill,
+  // BsArrowUpCircleFill,
   BsFacebook,
   BsInstagram,
   BsLinkedin,
   BsTwitter,
-  FaRegArrowAltCircleUp,
+  // FaRegArrowAltCircleUp,
 } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
@@ -14,7 +14,7 @@ const Footer = () => {
   const date = new Date();
   return (
     <Box w="100%" pt="3rem" pb="1rem" bgColor="gray.700" color="whiteAlpha.900" mt="8rem">
-      <Grid templateColumns="repeat(4, 1fr)" gap={8} w="80%" m="auto auto">
+      <Grid templateColumns="repeat(3, 1fr)" gap={8} w="80%" m="auto auto">
         <Box margin="auto auto">
           <Heading as="h2">ecoTourism</Heading>
         </Box>
@@ -43,9 +43,9 @@ const Footer = () => {
           </Flex>
         </Flex>
         {/* <button><FaRegArrowAltCircleUp /></button> */}
-        <Box height="100%" m="auto auto">
+        {/* <Box height="100%" m="auto auto">
           <BsArrowUpCircleFill />
-        </Box>
+        </Box> */}
       </Grid>
       <Box mt="3rem" fontSize="sm">
         {" "}
