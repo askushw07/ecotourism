@@ -117,7 +117,7 @@ const SignIn = () => {
                                         <source src={video} type="video/mp4" />
                                 </video>
                         </Box>
-                        <Container pt={"100px"}>
+                        <Container pt={"100px"} pb="100px"  bgImage={video}>
                                 <Box
                                         bg={"blackAlpha.800"}
                                         border={"2px solid whiteAlpha.900"}

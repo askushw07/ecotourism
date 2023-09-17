@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../Context/AuthContextProvider";
-import { Box, Button, Flex, Heading, useToast } from "@chakra-ui/react";
+import { Box, Button, Flex, Image, useToast } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
+import logo from "../Assets/logo.png";
 
 const Navbar = () => {
   const { logout } = useContext(AuthContext);
@@ -17,21 +18,26 @@ const Navbar = () => {
     logout();
     navigate("/signin");
   };
-    return <Box bgColor="teal.300" w="100%" p="1rem" color="white">
-        <Flex alignItems="center" justifyContent="space-between" w="85%" m="auto">
-            <Flex alignItems="left" w="35%">
-                {/* <Button onClick={handleLogout}>Logout</Button> */}
-                <Link to="/"><Heading as="h2" >ecoTourism</Heading></Link>
-            </Flex>
-            <Flex alignItems="center" justifyContent="space-between" w="50%">
-                <Link to="/">Home</Link>
-                <Link>Destinations</Link>
-                <Link>Packages</Link>
-                <Link to="/signin">Login</Link>
-                
-            </Flex>
+  return (
+    <Box bgColor="#7DBBA9" w="100%" p="0.5rem 1rem" color="white">
+      <Flex alignItems="center" w="90%" justifyContent="space-between" >
+        <Flex w="30%" >
+          {/* <Link to="/"><Heading as="h2" >ecoTourism</Heading></Link> */}
+          <Link to="/"><Image src={logo} height="4rem" /></Link>
         </Flex>
-  </Box>;
+        <Flex justifyContent="space-around" w="45%" ml="0">
+          <Link  to="/" className="grow">Home</Link>
+          <Link className="grow">Destinations</Link>
+          <Link className="grow">Activities</Link>
+          <Link className="grow">Packages</Link>
+          <Link className="grow">About</Link>
+        </Flex>
+        <Flex w="10%" >
+          <Button className="grow" bgColor="#DEB74C" m={0} p="0.8rem 1.5rem" borderRadius="3rem"><Link to="/signin">Login</Link></Button>
+        </Flex>
+      </Flex>
+    </Box>
+  );
 };
 
 export default Navbar;
