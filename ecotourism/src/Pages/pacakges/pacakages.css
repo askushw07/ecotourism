@@ -1,0 +1,21 @@
+.main {
+    margin: 20px;
+margin-top: 40px;
+color: black;
+}
+   
+.PacakgeCard{
+    margin: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.chakra-text{
+    color: black;
+}
+.CustomHolidays .css-0{
+ margin: 5px;
+}
+.css-enzuy1{
+    display: flex;
+justify-content:space-around;
+}
