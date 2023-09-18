@@ -27,7 +27,7 @@ const Navbar = () => {
         </Flex>
         <Flex justifyContent="space-around" w="45%" ml="0">
           <Link  to="/" className="grow">Home</Link>
-          <Link className="grow">Destinations</Link>
+          <Link to="/destination" className="grow">Destinations</Link>
           <Link className="grow">Activities</Link>
           <Link className="grow">Packages</Link>
           <Link className="grow">About</Link>
