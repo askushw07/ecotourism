@@ -10,7 +10,8 @@ import {
   Square,
   Text,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useContext } from "react";
+import {useNavigate} from 'react-router-dom'
 import img from "../../Assets/Indian Destinations/Andaman1.jpg";
 import { SunIcon } from "@chakra-ui/icons";
 import "../pacakges/pacakages.css";
@@ -21,9 +22,19 @@ import {
   faPlaneDeparture,
   faBowlFood,
 } from "@fortawesome/free-solid-svg-icons";
+import { AuthContext } from "../../Context/AuthContextProvider";
+import { PrivateRoute } from "../../Routes/PrivateRoute";
+import Contact from "../Contact";
 //import { MdFlightTakeoff } from 'react-icons/fa';
 const PackageCard = () => {
+  const { auth } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const handleClick = (val) => {
+    if (auth) navigate(val)
+    else navigate("/signin")
+  }
   return (
+    
     <Container
       maxW="7xl"
       content="center"
@@ -180,10 +191,10 @@ const PackageCard = () => {
             <Text color={"black"} display={"flex"} justifyContent={"center"}>Starting price per adult</Text>
           </Container>
           <Box margin={"10px 0px"} display={"flex"} justifyContent={"space-around"} >
-            <Button colorScheme="teal" variant={"outline"} margin={"6px"}>
+            <Button colorScheme="teal" variant={"outline"} margin={"6px"} onClick={()=>handleClick("contact")}>
               want us to call you?
             </Button>
-            <Button colorScheme="teal" margin={"2px"}>
+            <Button colorScheme="teal" margin={"2px"} onClick={()=>handleClick("checkout")}>
               Book Online
             </Button>
           </Box>
