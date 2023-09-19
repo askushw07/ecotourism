@@ -10,11 +10,11 @@ const Breadcrumbs = () => {
     separator={<ChevronRightIcon color="gray.500" />}
   >
     <BreadcrumbItem>
-      <BreadcrumbLink href="#">Home</BreadcrumbLink>
+      <BreadcrumbLink href="/">Home</BreadcrumbLink>
     </BreadcrumbItem>
 
     <BreadcrumbItem>
-      <BreadcrumbLink href="#">Indian Destinations</BreadcrumbLink>
+      <BreadcrumbLink href="/destination">Indian Destinations</BreadcrumbLink>
     </BreadcrumbItem>
 
     <BreadcrumbItem>

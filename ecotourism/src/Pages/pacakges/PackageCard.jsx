@@ -64,7 +64,7 @@ const PackageCard = ({destination,image,price,Hotels,Meals,daystype,sightseeing,
              
               text-overflow={"ellipsis"}
             >
-              {destination} with xyz Loaded 5days
+              {destination} with Neil Fully Loaded {days} days
             </Text>
             <Box padding={"0px 40px "}>
               <Text padding={"10px 0px"} color={"black "}>
