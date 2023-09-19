@@ -8,6 +8,7 @@ import Destinations from '../Pages/DestinationsPage/Destinations';
 import Pacakges from '../Pages/pacakges/Pacakges';
 import Checkout from '../Pages/Checkout/Checkout';
 import Contact from '../Pages/Contact';
+import PostCheckout from '../Pages/Checkout/PostCheckout';
 
 const AllRoutes = () => {
   return (
@@ -20,6 +21,7 @@ const AllRoutes = () => {
       <Route path='/checkout' element={<Checkout />} />
       <Route path='/contact' element={<Contact/>} />
       {/* <Route path='/checkout' element={<Checkout/>}/> */}
+      <Route path='/orderSummary' element={<PostCheckout/>}/>
     </Routes>
   )
 }

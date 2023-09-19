@@ -1,18 +1,29 @@
 import {
+
   Box,
   Flex,
   Heading,
   HStack,
   Link,
   Stack,
-  useColorModeValue as mode,
 } from '@chakra-ui/react'
 import { CartItem } from './CartItem'
 import { CartOrderSummary } from './CartOrderSummary'
 import { cartData } from './_data'
+import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 
-const Checkout = () => (
-  <Box
+const Checkout = () => {
+  const [price, setPrice] = useState(616516);
+  const navigate = useNavigate()
+  const handleClick = () => {
+    navigate("/")
+  }
+  const handlePrice = (val) => {
+    setPrice(val);
+    console.log(val);
+  }
+  return (<Box
     maxW={{
       base: '3xl',
       lg: '7xl',
@@ -50,24 +61,24 @@ const Checkout = () => (
         flex="2"
       >
         <Heading fontSize="2xl" fontWeight="extrabold">
-          Shopping Cart (3 items)
+          Checkout !
         </Heading>
 
         <Stack spacing="6">
           {cartData.map((item) => (
-            <CartItem key={item.id} {...item} />
+            <CartItem key={item.id} {...item} handlePrice={handlePrice} />
           ))}
         </Stack>
       </Stack>
 
       <Flex direction="column" align="center" flex="1">
-        <CartOrderSummary />
+        <CartOrderSummary price={price} />
         <HStack mt="6" fontWeight="semibold">
           <p>or</p>
-          <Link color={mode('blue.500', 'blue.200')}>Continue shopping</Link>
+          <Link ><button onClick={handleClick}>Continue shopping</button></Link>
         </HStack>
       </Flex>
     </Stack>
-  </Box>
-)
+  </Box>)
+}
 export default Checkout
