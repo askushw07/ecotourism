@@ -26,6 +26,7 @@ import { AuthContext } from "../../Context/AuthContextProvider";
 import { PrivateRoute } from "../../Routes/PrivateRoute";
 import Contact from "../Contact";
 //import { MdFlightTakeoff } from 'react-icons/fa';
+
 const PackageCard = () => {
   const { auth } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -55,7 +56,7 @@ const PackageCard = () => {
           justifyItems={"center"}
         >
           <Image
-            src={img}
+            src={image}
             width={"100%"}
             height={"100%"}
             display={"flex"}
@@ -75,11 +76,11 @@ const PackageCard = () => {
              
               text-overflow={"ellipsis"}
             >
-              Andaman with xyz Loaded 5days
+              {destination} with xyz Loaded 5days
             </Text>
             <Box padding={"0px 40px "}>
               <Text padding={"10px 0px"} color={"black "}>
-                4 Nights 5 Days
+                {days} Days {days-1} Nights
               </Text>
             </Box>
           </Box>
@@ -101,7 +102,7 @@ const PackageCard = () => {
                   variant={"outline"}
                   padding={"0"}
                   borderRadius={"100%"}
-                  margin={"0px auto"}
+                  margin={"0px auto"} 
                 >
                   <SunIcon color={"teal"} boxSize={30} />
                 </Button>
@@ -187,7 +188,7 @@ const PackageCard = () => {
             </Heading>
           </Flex>
           <Container content="center" flex={1} >
-            <Heading color={"black"}  display={"flex"} justifyContent={"center"}>₹ 30000</Heading>
+            <Heading color={"black"}  display={"flex"} justifyContent={"center"}>₹ {price}</Heading>
             <Text color={"black"} display={"flex"} justifyContent={"center"}>Starting price per adult</Text>
           </Container>
           <Box margin={"10px 0px"} display={"flex"} justifyContent={"space-around"} >
