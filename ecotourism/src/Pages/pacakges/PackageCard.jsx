@@ -30,7 +30,8 @@ const PackageCard = ({destination,image,price,Hotels,Meals,daystype,sightseeing,
   const { auth } = useContext(AuthContext);
   const navigate = useNavigate();
   const handleClick = (val) => {
-    if (auth) navigate(val)
+    if(val==="contact")navigate("/"+val)
+    else if (auth) navigate(val)
     else navigate("/signin")
   }
   return (

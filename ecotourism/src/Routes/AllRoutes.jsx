@@ -19,7 +19,7 @@ const AllRoutes = () => {
       <Route path="/:name" element={<Pacakges />} />
       <Route path='/checkout' element={<Checkout />} />
       <Route path='/contact' element={<Contact/>} />
-
+      {/* <Route path='/checkout' element={<Checkout/>}/> */}
     </Routes>
   )
 }

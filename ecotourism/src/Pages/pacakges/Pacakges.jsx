@@ -25,6 +25,7 @@ import Breadcrumbs from "./Breadcrums";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import PackageCard from "./PackageCard";
 import axios from "axios";
+import Loading from "../../Components/Loading";
 const Pacakges = () => {
   const { name } = useParams();
   console.log(name);
@@ -34,6 +35,7 @@ const Pacakges = () => {
   const [priceSort, setPriceSort] = useState(false);
   const [daysOrder, setDaysOrder] = useState("desc");
   const [priceOrder, setPriceOrder] = useState("asc");
+  const [loading, setLoading] = useState(false);
 
   const labelStyles = {
     mt: "2",
@@ -51,11 +53,14 @@ const Pacakges = () => {
   };
 
   const getData = async () => {
+    setLoading(true);
     const URL = Url(
       `https://ecotourism-msze.onrender.com/newDataEcotourism?destination=${name}`
     );
     // console.log(URL)
     let res = await axios.get(URL);
+    console.log(res)
+    if (res.request.status!=="") setLoading(false);
     //console.log(res.data);
     setData(res.data);
   };
@@ -82,6 +87,7 @@ const Pacakges = () => {
   useEffect(() => {
     getData();
   }, [daysOrder, daysSort, priceSort, priceOrder]);
+  if(loading) return<Loading/>
   return (
     <Box className="main">
       <Breadcrumbs />
@@ -141,7 +147,7 @@ const Pacakges = () => {
               Duration Low to High
             </MenuItem>
             <MenuItem value={"duration HL"} onClick={(e) => handleChange(e)}>
-              Duraion High to low
+              Duration High to low
             </MenuItem>
           </MenuList>
         </Menu>
