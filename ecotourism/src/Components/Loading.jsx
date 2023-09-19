@@ -1,4 +1,4 @@
-import { Skeleton, Stack } from "@chakra-ui/react";
+import { Box, Skeleton, Stack } from "@chakra-ui/react";
 import React from "react";
 
 const Loading = () => {
@@ -9,6 +9,9 @@ const Loading = () => {
         <Skeleton height="15px" />
         <Skeleton height="20px" />
         <br />
+        <center width={"300px"}>
+          <img src="https://www.farmsodisha.in/images/ofarisload.gif"></img>
+        </center>
         <br />
         <Stack>
           <Skeleton height="5px" />
