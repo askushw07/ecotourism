@@ -26,8 +26,7 @@ import { AuthContext } from "../../Context/AuthContextProvider";
 import { PrivateRoute } from "../../Routes/PrivateRoute";
 import Contact from "../Contact";
 //import { MdFlightTakeoff } from 'react-icons/fa';
-
-const PackageCard = () => {
+const PackageCard = ({destination,image,price,Hotels,Meals,daystype,sightseeing,Highlights,days})  => {
   const { auth } = useContext(AuthContext);
   const navigate = useNavigate();
   const handleClick = (val) => {
