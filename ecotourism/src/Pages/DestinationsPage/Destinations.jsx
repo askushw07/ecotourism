@@ -7,7 +7,9 @@ import BigCrousel from "./BigCrousel";
 
 import SearchBar from "./SearchBar";
 import InternationalDestinations from "./InternationalDestinations";
- const Destinations = () => {
+
+const Destinations = () => {
+
   return (
     <>
       <Container maxW="7xl" content="center" className="Destinations">

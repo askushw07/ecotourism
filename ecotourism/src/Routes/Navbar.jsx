@@ -67,7 +67,7 @@ const Links = [
   { name: "Destinations", path: "/destination" },
   {name: "Activities",path:"/"},
   {name:"Packages", path:"/"},
-  {name:"About", path:"/"},
+  {name:"About", path:"/checkout"},
   {name:"Contact",path:"/contact"}
 ];
 
