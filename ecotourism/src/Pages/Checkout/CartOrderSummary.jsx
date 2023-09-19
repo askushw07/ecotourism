@@ -8,30 +8,37 @@ import {
   useColorModeValue as mode,
 } from '@chakra-ui/react'
 import { FaArrowRight } from 'react-icons/fa'
-import { formatPrice } from './PriceTag'
+import { PriceTag, formatPrice } from './PriceTag'
+import { useNavigate } from 'react-router-dom'
+
 const OrderSummaryItem = (props) => {
   const { label, value, children } = props
   return (
     <Flex justify="space-between" fontSize="sm">
-      <Text fontWeight="medium" color={mode('gray.600', 'gray.400')}>
+      <Text fontWeight="medium" color={mode('gray.600', 'gray.400')} >
         {label}
       </Text>
-      {value ? <Text fontWeight="medium">{value}</Text> : children}
+      {value ? <PriceTag price={value} currency="INR" /> : children}
     </Flex>
   )
 }
 
-export const CartOrderSummary = () => {
+export const CartOrderSummary = ({ price }) => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/orderSummary");
+  }
   return (
     <Stack spacing="8" borderWidth="1px" rounded="lg" padding="8" width="full">
       <Heading size="md">Order Summary</Heading>
 
       <Stack spacing="6">
-        <OrderSummaryItem label="Subtotal" value={formatPrice(597)} />
-        <OrderSummaryItem label="Shipping + Tax">
-          <Link href="#" textDecor="underline">
+        <OrderSummaryItem label="Subtotal" value={price} />
+        <OrderSummaryItem label="Tax (including 18% GST)">
+          {/* <Link href="#" textDecor="underline">
             Calculate shipping
-          </Link>
+          </Link> */}
+          <Text>{price*18/100}</Text>
         </OrderSummaryItem>
         <OrderSummaryItem label="Coupon Code">
           <Link href="#" textDecor="underline">
@@ -43,12 +50,13 @@ export const CartOrderSummary = () => {
             Total
           </Text>
           <Text fontSize="xl" fontWeight="extrabold">
-            {formatPrice(597)}
+          <PriceTag price={price+price*18/100} currency="INR" />
           </Text>
         </Flex>
       </Stack>
-      <Button colorScheme="blue" size="lg" fontSize="md" rightIcon={<FaArrowRight />}>
+      <Button colorScheme="blue" size="lg" fontSize="md" rightIcon={<FaArrowRight />} onClick={handleClick}>
         Checkout
+
       </Button>
     </Stack>
   )
