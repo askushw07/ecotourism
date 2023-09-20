@@ -151,7 +151,7 @@ export default function Navbar() {
                 {/* <Avatar
                   size={'sm'}
                 /> */}
-              </MenuButton></Link>:<h3>User</h3>}
+              </MenuButton></Link>:<MenuButton><h3>User</h3></MenuButton>}
               {auth&&<MenuList>
                 <MenuItem className="grow">Profile</MenuItem>
                 <MenuItem className="grow" onClick={()=>handleLogout()}>Logout</MenuItem>
